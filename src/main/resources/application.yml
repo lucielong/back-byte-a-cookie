@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/${DATABASE_NAME}
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
+  config:
+    import: optional:file:.env[.properties]
+  jpa:
+      hibernate:
+        ddl-auto: validate
+      show-sql: true
+      properties:
+        hibernate:
+          format-sql: true
+logging:
+  level:
+    root: warn
+  pattern:
+    console: "%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger.%M - %msg%n"
